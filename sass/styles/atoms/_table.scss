@@ -1,0 +1,84 @@
+// Table
+
+table {
+  border-collapse: collapse;
+  color: $dark-gray;
+  display: block;
+  font-weight: 600;
+  margin-top: 2rem;
+  width: 100%;
+  overflow-x: auto;
+
+  tbody {
+    background: $white;
+  }
+
+  th {
+    background: $light-blue;
+    color: $white;
+    font-weight: 700;
+    padding: 1.5rem 3rem;
+    text-align: left;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    &[scope=col] {
+      vertical-align: top;
+    }
+
+    a {
+      color: $white;
+      display: inline-flex;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: $white;
+      }
+    }
+  }
+
+  tr {
+    &:first-child {
+      border-top: 0;
+    }
+
+    &:last-child td {
+      border-bottom: 0;
+    }
+
+    td {
+      padding: 1.5rem 3rem;
+      vertical-align: top;
+      border-bottom: 1px solid $light-gray;
+    }
+  }
+
+  caption {
+    background: $light-gray;
+    text-align: left;
+    padding: 2rem 3rem;
+  }
+
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: $light-blue;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $light-blue;
+      text-decoration: underline;
+    }
+  }
+}

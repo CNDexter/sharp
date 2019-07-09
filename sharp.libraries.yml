@@ -1,0 +1,10 @@
+global:
+  version: 1.x
+  css:
+    theme:
+      css/styles.css: {}
+  js:
+    js/build/scripts.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/modernizr

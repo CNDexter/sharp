@@ -1,0 +1,12 @@
+// Link styles
+
+a {
+	color: $light-orange;
+	text-decoration: underline;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $dark-orange;
+	}
+}

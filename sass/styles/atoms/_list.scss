@@ -1,0 +1,87 @@
+// List
+// Set these styles within a body-related class, so to not override admin styles.
+// Or reset the overridden styles in _admin.scss.
+
+.region-content {
+
+  ul,
+  ol {
+    margin-left: 3rem;
+    margin-top: 1rem;
+    line-height: 2.6rem;
+
+    li {
+      padding: 0.75rem 1.5rem;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.25rem;
+
+      li {
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: li;
+    padding: 0;
+    margin-left: 6.5rem;
+
+    li {
+      position: relative;
+      list-style: none;
+    }
+
+    li:before {
+      display: block;
+      position: absolute;
+      content: '.';
+      color: $light-blue;
+      content: counter(li, decimal);
+      counter-increment: li;
+      font-weight: 700;
+      padding: 0 1rem 0 0;
+      margin-left: -4rem;
+      margin-right: 4rem;
+    }
+
+    ol {
+      margin-bottom: 0;
+      margin-left: 4rem;
+      padding: 0.5rem 0;
+    }
+
+    ol>li:before {
+      content: counter(li, lower-latin) ". ";
+    }
+
+    ol ol>li:before {
+      content: counter(li, lower-roman) ". ";
+    }
+  }
+
+  ul {
+    list-style: none;
+
+    li:before {
+      font-size: 1.5rem;
+      color: $light-blue;
+      content: "\25cf";
+      display: inline-block;
+      font-weight: bold;
+      margin-left: -4rem;
+      width: 3.5rem;
+      vertical-align: top;
+    }
+
+    ul {
+      padding: 0.5rem 0 0.5rem 0.75rem;
+    }
+
+    ul li:before {
+      margin-left: -3.5rem;
+    }
+  }
+}

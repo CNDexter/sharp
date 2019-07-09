@@ -1,0 +1,22 @@
+name: Sharp
+type: theme
+description: 'Custom Base Theme based off of Classy.'
+core: 8.x
+
+# Defines the base theme
+base theme: classy
+
+# Libraries
+libraries:
+  - sharp/global
+
+# Regions
+regions:
+  header: Header
+  hero: Hero
+  content_prefix: 'Content prefix'
+  content: Content
+  sidebar_left: 'Sidebar left'
+  sidebar_right: 'Sidebar right'
+  content_suffix: 'Content suffix'
+  footer: Footer

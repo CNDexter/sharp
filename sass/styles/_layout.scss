@@ -1,0 +1,66 @@
+// Layout related styles
+
+// Width and padding on items outside of main
+.container {
+  margin: 0 $cadence;
+
+  @include breakpoint($desktop) {
+    margin: 0 auto;
+    max-width: $max-page-width;
+    padding: 0 $cadence-wide;
+  }
+}
+
+// Width and padding on items inside main
+main .container {
+  margin: 0 $cadence;
+
+  @include breakpoint($desktop) {
+
+    margin: 0 auto;
+    max-width: $max-page-small;
+    padding: 0 $cadence-wide;
+  }
+}
+
+// Vertical spacing on regions
+.region {
+  padding: $cadence 0;
+
+  @include breakpoint($desktop) {
+    padding: $cadence-wide 0;
+  }
+}
+
+// Sidebar styling.
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 110rem;
+  margin: 0 auto;
+
+  aside {
+    width: 100%;
+  }
+
+  @include breakpoint($tablet) {
+    flex-direction: row;
+
+    aside {
+      width: 20%;
+    }
+
+    // If two sidebars
+    .layout-two-sidebars & .layout-content {
+      border: 5px solid purple;
+      width: 55%;
+    }
+
+    // If one sidebar
+    .layout-content {
+      max-width: $max-page-small;
+      width: 75%;
+    }
+  }
+}

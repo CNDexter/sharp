@@ -1,0 +1,54 @@
+<?php
+/**
+ * @file
+ * Functions to support theming in the sharp theme.
+ */
+
+/**
+ * Implements template_preprocess_HOOK() for the HTML template.
+ */
+function sharp_preprocess_html(&$variables) {
+
+  // Add x-ua-compatibility tags.
+  $x_ua_compatible = [
+    '#tag' => 'meta',
+    '#attributes' => [
+      'http-equiv' => 'x-ua-compatible',
+      'content' => 'ie=11',
+    ],
+  ];
+  $variables['page']['#attached']['html_head'][] = [$x_ua_compatible, 'x-ua-compatible'];
+
+  // Add node id as a class.
+  $request = \Drupal::request();
+  $node = ($request->attributes->get('_route') == 'entity.node.canonical'
+            ? $request->attributes->get('node')
+            : NULL
+          );
+
+  if ($node) {
+    $variables['attributes']['class'][] = 'page-node-' . $node->id();
+  }
+
+  // Add information about the number of sidebars.
+  $has_left_sidebar = !empty($variables['page']['sidebar_left']);
+  $has_right_sidebar = !empty($variables['page']['sidebar_right']);
+
+  if ($has_left_sidebar && $has_right_sidebar) {
+    $variables['attributes']['class'][] = 'layout-sidebar-left';
+    $variables['attributes']['class'][] = 'layout-sidebar-right';
+    $variables['attributes']['class'][] = 'layout-two-sidebars';
+  }
+  elseif ($has_left_sidebar) {
+    $variables['attributes']['class'][] = 'layout-one-sidebar';
+    $variables['attributes']['class'][] = 'layout-sidebar-left';
+  }
+  elseif ($has_right_sidebar) {
+    $variables['attributes']['class'][] = 'layout-one-sidebar';
+    $variables['attributes']['class'][] = 'layout-sidebar-right';
+  }
+  else {
+    $variables['attributes']['class'][] = 'layout-no-sidebars';
+  }
+}
+

@@ -1,0 +1,118 @@
+// Form elements
+
+form {
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="email"],
+  select,
+  textarea {
+    background: $white;
+    border: 2px solid $light-blue;
+    border-radius: 0;
+    box-shadow: 0;
+    height: auto;
+    width: 250px;
+
+    // resetting
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+
+    &:focus {
+      border: 2px solid $light-orange;
+      outline: none;
+    }
+  }
+
+  // checkbox / radio
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked,
+  [type="radio"]:not(:checked),
+  [type="radio"]:checked {
+    left: -9999px;
+    position: absolute;
+  }
+
+  [type="checkbox"]:not(:checked) + label,
+  [type="checkbox"]:checked + label,
+  [type="radio"]:not(:checked) + label,
+  [type="radio"]:checked + label {
+    cursor: pointer;
+    padding-left: 3rem;
+    position: relative;
+    text-transform: none;
+  }
+
+  // checkbox / radio not checked
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="radio"]:not(:checked) + label:before {
+    background: $white;
+    border: 2px solid $light-blue;
+    content: "";
+    height: 16px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 15px;
+  }
+
+  [type="radio"]:not(:checked) + label:before {
+    border-radius: 100%;
+    width: 16px;
+  }
+
+  // checkbox / radio checked
+  [type="checkbox"]:checked + label:after,
+  [type="radio"]:checked + label:after {
+    background: $light-orange;
+    border: 2px solid $light-orange;
+    content: "\2713";
+    color: #fff;
+    height: 16px;
+    left: 0;
+    padding-left: 2px;
+    position: absolute;
+    top: 0;
+    width: 13px;
+    font-size: 1.5rem;
+  }
+
+  [type="radio"]:checked + label:after {
+    content: "";
+    background: $white;
+    border-radius: 100%;
+    padding-left: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid $light-orange;
+    box-shadow: inset 0 0 0 5px $light-orange;
+  }
+
+  // checkbox / radio focus
+  [type="checkbox"]:checked:focus + label:before,
+  [type="checkbox"]:not(:checked):focus + label:before,
+  [type="radio"]:checked:focus + label:before,
+  [type="radio"]:not(:checked):focus + label:before {
+    border: 2px solid $light-orange;
+  }
+
+  // checkbox / radio hover
+  .form-checkboxes label:hover:before,
+  .form-radios label:hover:before {
+    border: 2px solid $light-orange !important;
+  }
+}

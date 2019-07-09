@@ -1,0 +1,26 @@
+// Buttons
+
+button,
+.btn,
+.button,
+a.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  background: $light-blue;
+  border: 2px solid $light-blue;
+  border-radius: 0;
+  color: $white;
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.5rem 3rem;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: $white;
+    color: $light-blue;
+    text-decoration: none;
+  }
+}
